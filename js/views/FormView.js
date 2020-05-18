@@ -29,13 +29,14 @@ FormView.onKeyUp = function (e) {
   if (!this.inputElem.value.length) this.emit('@reset');
   if (e.keyCode !== enter) return
   this.emit('@submit', { input: this.inputElem.value });
-  this.inputElem.value = '';
-  this.showResetBtn(false);
+  // this.inputElem.value = '';
+  // this.showResetBtn(false);
 }
 
 FormView.onClickReset = function () {
   this.emit('@reset');
   this.showResetBtn(false);
 }
+
 
 export default FormView;
