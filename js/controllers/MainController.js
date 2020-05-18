@@ -6,7 +6,6 @@ export default {
   init() {
     console.log(tag, 'init');
     FormView.setup(document.querySelector('form'));
-    console.log(FormView);
     
   }
 }
