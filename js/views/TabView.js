@@ -4,11 +4,15 @@ const tag = '[TabView]';
 
 const TabView = Object.create(View);
 
+TabView.tabNames = {
+  recommand: '추천 검색어',
+  recent: '최근 검색어',
+}
+
 TabView.setup = function (elem) {
   this.init(elem);
-  this.selected = this.elem.querySelectorAll('li')[0];
-  this.setActiveTab(this.selected.innerHTML);
-  this.bindEvents();
+  this.bindEvent();
+  return this;
 }
 
 TabView.setActiveTab = function (tabName) {
@@ -18,13 +22,13 @@ TabView.setActiveTab = function (tabName) {
   });
 }
 
-TabView.bindEvents= function () {
-  this.elem.addEventListener('click', e => this.onClickTab(e));
+TabView.bindEvent= function () {
+  this.elem.addEventListener('click', e => this.onClick(e.target.innerHTML));
 }
 
-TabView.onClickTab = function (e) {
-  this.selected = e.target.innerHTML;
-  this.setActiveTab(this.selected);
+TabView.onClick = function (tabName) {  
+  this.setActiveTab(tabName);
+  this.emit('@change', { tabName });
 }
 
 export default TabView;
