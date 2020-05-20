@@ -29,13 +29,16 @@ FormView.onKeyUp = function (e) {
   if (!this.inputElem.value.length) this.emit('@reset');
   if (e.keyCode !== enter) return
   this.emit('@submit', { input: this.inputElem.value });
-  // this.inputElem.value = '';
-  // this.showResetBtn(false);
 }
 
 FormView.onClickReset = function () {
   this.emit('@reset');
   this.showResetBtn(false);
+}
+
+FormView.setKeyword = function (keyword = '') {
+  this.inputElem.value = keyword;
+  this.showResetBtn(this.inputElem.value.length);
 }
 
 
