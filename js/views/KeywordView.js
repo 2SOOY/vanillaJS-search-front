@@ -10,13 +10,13 @@ KeywordView.setup = function(elem) {
 }
 
 KeywordView.render = function(data = []) {
-  console.log(tag, 'render');
-  this.elem.innerHTML = data.length ? this.getKeywordHtml(data) : '추천 검색어가 없습니다.';
+  console.log(tag, 'render', data);
+  this.elem.innerHTML = data.length ? this.getKeywordsHtml(data) : '추천 검색어가 없습니다.';
   this.bindEvent(); // click이벤트는 키워드에 대한 DOM이 만들어진 이후에 binding 해야함.
   this.show();
 }
 
-KeywordView.getKeywordHtml = function (data) {
+KeywordView.getKeywordsHtml = function (data) {
   return data.reduce((html, item, index) => {
     html += `<li data-keyword="${item.keyword}">
       <span class="number">${index + 1}</span>${item.keyword}</li>`
