@@ -28,7 +28,7 @@ export default {
       .on('@click', e => this.onClickKeyword(e.detail.keyword))
       .on('@remove', e => this.onRemoveHistory(e.detail.keyword))
     
-    this.seletedTab = '최근 검색어';
+    this.seletedTab = '추천 검색어';
     this.renderView();
   },
 
@@ -73,6 +73,7 @@ export default {
   },
   
   search(query) {
+    HistoryModel.add(query);
     console.log(tag, 'search', query);
     FormView.setKeyword(query);
     // search api
