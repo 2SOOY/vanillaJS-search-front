@@ -18,6 +18,10 @@ Javascript에 대한 이해도를 높이고 간단한 웹어플리케이션 제�
 │   │   └── SearchModel.js   
 │   └── views
 │       ├── FormView.js
+│       ├── HistoryView.js
+│       ├── KeywordView.js
+│       ├── ResultView.js
+│       ├── TabView.js
 │       └── View.js
 └── style.css
 ```
